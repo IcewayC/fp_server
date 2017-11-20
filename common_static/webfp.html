@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/resources/images/icon.jpg">
+
+    <title>Browser Fingerprint For Android</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/templates/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/templates/bootstrap-table-1.6.0/bootstrap-table.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        body {
+        }
+            
+        .navbar-static-top {
+            margin-bottom: 19px;
+        }
+		.fp_table_value {
+			word-break: break-all;
+		}
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+    	<div class="container">
+    	    <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		    <span class="sr-only">展开导航</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		</button>
+                <a class="navbar-brand" href="#">Android浏览器指纹实验</a>
+	    </div>
+            <div id="navbar" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+		    <li class="active"><a href="index">指纹信息</a>
+		    </li>
+		    <li><a href="history">历史记录</a>
+		    </li>
+		</ul>
+	    </div>
+	    <!--/.nav-collapse -->
+	</div>
+    </nav>
+
+    <div class="container">
+		<!-- Main component for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-md-10"><h3>当前浏览器指纹信息</h3></div>
+				<!--
+				<div class="col-md-2"><a class="btn btn-lg btn-primary disabled" role="button" id="uploadButton">上传新指纹</a></div>
+				-->
+			</div>
+				
+			<table id="browserfp"
+				data-striped="true">
+				<thead>
+				<tr>
+					<th data-field="qidname" data-width=50 class="fp_table_value">隐性标识符</th>
+					<th data-field="qidvalue" data-width=550 class="fp_table_value">对应内容</th>
+				</tr>
+				</thead>
+			</table>
+		</div>
+    </div>
+    <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/templates/bootstrap/assets/js/jquery.min.js"></script>
+    <script src="/templates/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/templates/bootstrap-table-1.6.0/bootstrap-table.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/templates/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="/templates/browserfp/json2.js"></script>
+    <script src="/templates/browserfp/gl-matrix-min-1.2.3.js"></script>
+    <script src="/templates/browserfp/barrier.js"></script>
+    <script src="/templates/browserfp/webgl.js"></script>    
+    <script src="/templates/browserfp/modernizr-latest-custom.js"></script>
+    <script src="/templates/browserfp/detection.js"></script>
+    
+    <script>
+        $(function () {
+            $('#browserfp').bootstrapTable({
+                data: [{"qidname": "loading", "qidvalue": "loading"}]
+            });
+        });
+		getFP();
+    </script>
+</body>
+
+</html>
